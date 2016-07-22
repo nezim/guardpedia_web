@@ -4,26 +4,38 @@ angular.
 module('phonecatApp').
 controller('LeakedUserDetailController', ['$scope', '$http', '$routeParams', 'leakedUserFactory', function($scope, $http, $routeParams, leakedUserFactory) {
     $scope.data = {};
+    $scope.noUser = false;
+    $scope.noData = false;
 
     $scope.loadData = function() {
         var email = $routeParams.email;
-        console.log(email);
-        $scope.email = email;
 
+        $scope.email = email;
+        $scope.getUser(email);
         $scope.fetchExternalAPI(email);
-        // $scope.data = data;
-        $scope.loading = false;
     };
 
 
     $scope.fetchExternalAPI = function(email) {
         leakedUserFactory.getData(email)
             .success(function(data) {
-                console.log(data);
                 $scope.data = data;
             })
             .error(function(error) {
-                // error dialog, soon
+                $scope.noData = true;
+                console.log("no data");
+            });
+        return true;
+    };
+
+    $scope.getUser = function(email) {
+        leakedUserFactory.getUser(email)
+            .success(function(data) {
+                $scope.user = data.data;
+            })
+            .error(function(error) {
+                $scope.noUser = true;
+
             });
         return true;
     };

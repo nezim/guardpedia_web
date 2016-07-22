@@ -1,38 +1,74 @@
 <h1>Leaked User Account Detail</h1>
 <div>
-    <h4>Email : {{email}}</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">ID</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{user.id}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">User ID</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{user.attributes.user_id}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Email</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{user.attributes.email}}</p>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Leaked Count</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{user.attributes.leaked_count}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Scan Time</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{user.attributes.scan_time}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Mail Sent Time</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{user.attributes.mail_sent_time}}</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h4>Data</h4>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>User ID</th>
-                    <th>Email</th>
-                    <th>Leaked Count</th>
-                    <th>Scan Time</th>
-                    <th>Mail Sent Time</th>
-                    <th>Status</th>
-                    <th></th>
+                    <th>Domain</th>
+                    <th>Breach Date</th>
+                    <th>Description</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>101</td>
-                    <td>123456</td>
-                    <td>purnaresa@live.com</td>
-                    <td>5 Source</td>
-                    <td>1 Januari 2016</td>
-                    <td>1 Januari 2016</td>
-                    <td>Risk</td>
-                    <td>
-                        <button type="button" class="btn btn-default">Detail</button>
-                    </td>
+                <tr ng-repeat="data in data">
+                    <td width="15%">{{data.Domain}}</td>
+                    <td width="15%">{{data.BreachDate}}</td>
+                    <td>{{data.Description}}</td>
                 </tr>
-
             </tbody>
         </table>
     </div>
-    <div>
-        <pre id="default-spacing">{{ data | json }}</pre>
+    <div ng-if="noData==true">
+        <h4>no user</h4>
     </div>
 </div>

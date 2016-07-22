@@ -31,17 +31,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>101</td>
-                    <td>123456</td>
-                    <td>purnaresa@live.com</td>
-                    <td>5 Source</td>
-                    <td>1 Januari 2016</td>
-                    <td>1 Januari 2016</td>
+                <tr ng-repeat="user in data.data">
+                    <td>{{user.id}}</td>
+                    <td>{{user.attributes.user_id}}</td>
+                    <td>{{user.attributes.email}}</td>
+                    <td>{{user.attributes.leaked_count}}</td>
+                    <td>{{user.attributes.scan_time}}</td>
+                    <td>{{user.attributes.mail_sent_time}}</td>
                     <td>Risk</td>
                     <td>
                         <button type="button" class="btn btn-default">Send Email</button>
-                        <button type="button" data-ng-click="goToDetail('purnaresa@live.com');" class="btn btn-default">Detail</button>
+                        <button type="button" data-ng-click="goToDetail(user.attributes.email);" class="btn btn-default">Detail</button>
                     </td>
                 </tr>
 
