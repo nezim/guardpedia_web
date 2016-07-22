@@ -1,0 +1,38 @@
+<h1>Leaked User Account Detail</h1>
+<div>
+    <h4>Email : {{email}}</h4>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Email</th>
+                    <th>Leaked Count</th>
+                    <th>Scan Time</th>
+                    <th>Mail Sent Time</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>123456</td>
+                    <td>purnaresa@live.com</td>
+                    <td>5 Source</td>
+                    <td>1 Januari 2016</td>
+                    <td>1 Januari 2016</td>
+                    <td>Risk</td>
+                    <td>
+                        <button type="button" class="btn btn-default">Detail</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <pre id="default-spacing">{{ data | json }}</pre>
+    </div>
+</div>

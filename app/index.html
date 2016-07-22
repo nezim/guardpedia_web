@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" ng-app="phonecatApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>Tokopedia Guard</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="app.css" />
+  <link rel="stylesheet" href="app.animations.css" />
+
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <!--<script src="bower_components/angular-animate/angular-animate.js"></script>-->
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.module.js"></script>
+  <script src="app.config.js"></script>
+  <script src="app.animations.js"></script>
+  <script src="controllers/user-tracking.js"></script>
+  <script src="controllers/leaked-user.js"></script>
+  <script src="controllers/leaked-user-detail.js"></script>
+  <script src="controllers/suspicious-user.js"></script>
+  <script src="controllers/global.js"></script>
+  <script src="services/leaked-user.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#">Tokopedia Guard</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse" ng-controller="GlobalController">
+        <ul class="nav navbar-nav">
+          <li ng-class="{ active: isActive('/user-tracking')}"="active"><a href="#/user-tracking">User Tracking</a></li>
+          <li ng-class="{ active: isActive('/leaked-user')}"="active"><a href=" #/leaked-user ">Leaked User Account</a></li>
+          <li ng-class="{ active: isActive('/suspicious-user')}"="active"><a href="#/suspicious-user ">Suspicious User Registration</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container ">
+    <div ng-view class="view-frame "></div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Tokopedia Hackaton 2016</p>
+    </div>
+  </footer>
+</body>
+
+</html>
