@@ -10,7 +10,7 @@ controller('LeakedUserController', ['$scope', '$http', '$routeParams', 'leakedUs
                 $scope.data = data;
             })
             .error(function(error) {
-                // error dialog, soon
+
             });
     };
 

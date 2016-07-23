@@ -26,7 +26,7 @@ factory('leakedUserFactory', ['$http', function($http) {
     };
 
     leakedUserFactory.getList = function() {
-        var url = 'http://192.168.61.60:8080/leaked_user';
+        var url = 'http://localhost:8080/leaked-user';
         var req = {
             async: true,
             crossDomain: true,
@@ -36,7 +36,6 @@ factory('leakedUserFactory', ['$http', function($http) {
                 'Content-Type': 'application/vnd.api+json',
                 'Accept': 'application/vnd.api+json'
             },
-            mimeType: 'multipart/form-data',
         };
 
         var result = $http(req);
@@ -45,7 +44,7 @@ factory('leakedUserFactory', ['$http', function($http) {
     };
 
     leakedUserFactory.getUser = function(email) {
-        var url = 'http://192.168.61.60:8080/leaked_user/' + email;
+        var url = 'http://localhost:8080/leaked-user/' + email;
         var req = {
             async: true,
             crossDomain: true,
@@ -55,7 +54,6 @@ factory('leakedUserFactory', ['$http', function($http) {
                 'Content-Type': 'application/vnd.api+json',
                 'Accept': 'application/vnd.api+json'
             },
-            mimeType: 'multipart/form-data',
         };
 
         var result = $http(req);

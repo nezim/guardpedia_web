@@ -1,6 +1,6 @@
 <h1>Leaked User Account Detail</h1>
 <div>
-    <div class="row">
+    <div data-ng-if="noUser==false" class="row">
         <div class="col-md-6">
             <form class="form-horizontal">
                 <div class="form-group">
@@ -48,27 +48,33 @@
             </form>
         </div>
     </div>
-
-    <h4>Data</h4>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Domain</th>
-                    <th>Breach Date</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="data in data">
-                    <td width="15%">{{data.Domain}}</td>
-                    <td width="15%">{{data.BreachDate}}</td>
-                    <td>{{data.Description}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div data-ng-if="noUser==true" class="row">
+        <h4>User not found in tokopedia DB</h4>
+        <h5>Fetching directly</h5>
     </div>
-    <div ng-if="noData==true">
-        <h4>no user</h4>
+    <div data-ng-if="noData==false" class="row">
+        <h4>Data</h4>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Domain</th>
+                        <th>Breach Date</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in data">
+                        <td width="15%">{{data.Domain}}</td>
+                        <td width="15%">{{data.BreachDate}}</td>
+                        <td>{{data.Description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div data-ng-if="noData==true" class="row">
+        <h4>Leaked data not found</h4>
+        <h5>This user is safe</h5>
     </div>
 </div>

@@ -7,9 +7,9 @@ config(['$locationProvider', '$routeProvider',
     // $locationProvider.hashPrefix('!');
 
     $routeProvider.
-    when('/user-tracking', {
-      controller: 'UserTrackingController',
-      templateUrl: 'views/user-tracking.html'
+    when('/suspicious-activity', {
+      controller: 'SuspiciousActivityController',
+      templateUrl: 'views/suspicious-activity.html'
     }).
     when('/leaked-user', {
       controller: 'LeakedUserController',
@@ -24,6 +24,6 @@ config(['$locationProvider', '$routeProvider',
       templateUrl: 'views/suspicious-user.html'
     }).
 
-    otherwise('/user-tracking');
+    otherwise('/suspicious-activity');
   }
 ]);

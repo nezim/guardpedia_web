@@ -23,7 +23,6 @@ controller('LeakedUserDetailController', ['$scope', '$http', '$routeParams', 'le
             })
             .error(function(error) {
                 $scope.noData = true;
-                console.log("no data");
             });
         return true;
     };
@@ -35,7 +34,6 @@ controller('LeakedUserDetailController', ['$scope', '$http', '$routeParams', 'le
             })
             .error(function(error) {
                 $scope.noUser = true;
-
             });
         return true;
     };

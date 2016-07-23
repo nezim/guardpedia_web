@@ -1,0 +1,64 @@
+<h1>Suspicious Activity</h1>
+<div>
+    <h4 for="form-search">Search by</h4>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="input-email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-4">
+                <input ng-model="email" type="search" class="form-control" id="input-email" placeholder="hack@ton.com">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <button data-ng-click="searchData(email);" type="submit" class="btn btn-default ">Search</button>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID/Cookie</th>
+                    <th>Email</th>
+                    <th>Device</th>
+                    <th>IP Address</th>
+                    <th>Location</th>
+                    <th>Login Time</th>
+                    <th>Status</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="activity in data.data">
+                    <td>{{activity.attributes.cookie}}</td>
+                    <td>{{activity.attributes.email}}</td>
+                    <td>{{activity.attributes.os}}<br>{{activity.attributes.browser}}</td>
+                    <td>{{activity.attributes.ip}}<br>{{activity.attributes.provider}}</td>
+                    <td>{{activity.attributes.location}}</td>
+                    <td>{{activity.attributes.login_time}}</td>
+                    <td>{{activity.attributes.flag_status}}</td>
+                    <td>
+                        <button type="button" class="btn btn-default">Suspend</button>
+                        <button type="button" class="btn btn-default">Detail</button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
